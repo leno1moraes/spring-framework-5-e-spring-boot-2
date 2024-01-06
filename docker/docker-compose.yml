@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: my-mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      #MYSQL_DATABASE: your_database_name
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql  # Mapeamento de volume para persistir os dados
+
+  adminer:
+    image: adminer
+    container_name: adminer-container
+    ports:
+      - "8001:8080"
+
+volumes:
+  mysql-data:  # Definição do volume
