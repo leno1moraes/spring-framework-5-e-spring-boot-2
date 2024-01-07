@@ -16,5 +16,11 @@ Informações do projeto
 5 - Java = 17
 
 ***mais informações no pom
+
 ###############################################################################
 
+Banco de dados 
+
+1 - Subido no docker
+
+2 - docker-compose ==> demo >> docker >> docker-compose
