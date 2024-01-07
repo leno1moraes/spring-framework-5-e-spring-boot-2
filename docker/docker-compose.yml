@@ -1,24 +1,22 @@
 version: '3'
 
 services:
-  mysql:
-    image: mysql:8.0
-    container_name: my-mysql-container
-    environment:
-      MYSQL_ROOT_PASSWORD: 12345678
-      #MYSQL_DATABASE: your_database_name
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+  mongodb:
+    image: mongo:latest  # Utilize a versão desejada
+    container_name: my-mongodb-container
     ports:
-      - "3306:3306"
+      - "27017:27017"  # Conectar na porta padrão do MongoDB
     volumes:
-      - mysql-data:/var/lib/mysql  # Mapeamento de volume para persistir os dados
+      - mongodb-data:/data/db  # Mapeamento de volume para persistir os dados
 
-  adminer:
-    image: adminer
-    container_name: adminer-container
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express-container
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
     ports:
-      - "8001:8080"
+      - "8002:8081"  # Conectar na porta 8001
 
 volumes:
-  mysql-data:  # Definição do volume
+  mongodb-data:  # Definição do volume
