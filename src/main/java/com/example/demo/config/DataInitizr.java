@@ -27,9 +27,9 @@ public class DataInitizr implements ApplicationListener<ContextRefreshedEvent> {
         List<Usuario> usuarios = usuarioRepository.findAll();
 
         if (usuarios.isEmpty()){
-            createUsuario("Maria", "maria@email");
-            createUsuario("Joao", "joao@email");
-            createUsuario("Julia", "julia@email");
+            createUsuario("Maria 2", "maria@email");
+            createUsuario("Joao 2", "joao@email");
+            createUsuario("Julia 2", "julia@email");
         }
     }
 
